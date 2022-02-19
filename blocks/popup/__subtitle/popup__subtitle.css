@@ -1,0 +1,17 @@
+.popup__subtitle{
+    padding: 0;
+    margin: 0 0 54px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+@media screen and (max-width: 700px) {
+    .popup__subtitle{
+        padding: 0;
+        margin: 0 0 75px;
+        font-size: 18px;
+    }
+}

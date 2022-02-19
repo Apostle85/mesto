@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto Russia</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+</head>
+
+<body>
+    <div class="page">
+        <header class="header page__element">
+            <img src="./images/__logo.svg" class="header__logo" alt="Логотип 'Mesto Russia'" />
+        </header>
+        <main class="main page__element">
+            <section class="profile main__section">
+                <img src="./images/profile__avatar.jpg" alt="Жак-Ив Кусто"
+                    class="profile__avatar" />
+                <div class="profile__info">
+                    <h1 class="profile__title">Жак-Ив Кусто</h1>
+                    <div class="profile__button profile__button_type_edit"></div>
+                    <p class="profile__subtitle">Исследователь океана</p>
+                </div>
+                <div class="profile__button profile__button_type_add">+</div>
+            </section>
+            <section class="elements main__section">
+                <ul class="elements__list">
+                    <li class="element">
+                        <img src="../../../images/element__photo_1.jpg" alt="Карачаевск" class="element__photo">
+                        <div class="element__info">
+                            <h2 class="element__title">Карачаевск</h2>
+                            <div class="element__like"></div>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img src="../../../images/element__photo_2.jpg" alt="Гора Эльбрус" class="element__photo">
+                        <div class="element__info">
+                            <h2 class="element__title">Гора Эльбрус</h2>
+                            <div class="element__like"></div>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img src="../../../images/element__photo_3.jpg" alt="Домбай" class="element__photo">
+                        <div class="element__info">
+                            <h2 class="element__title">Домбай</h2>
+                            <div class="element__like"></div>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img src="../../../images/element__photo_2.jpg" alt="Гора Эльбрус" class="element__photo">
+                        <div class="element__info">
+                            <h2 class="element__title">Гора Эльбрус</h2>
+                            <div class="element__like"></div>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img src="../../../images/element__photo_3.jpg" alt="Домбай" class="element__photo">
+                        <div class="element__info">
+                            <h2 class="element__title">Домбай</h2>
+                            <div class="element__like"></div>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img src="../../../images/element__photo_1.jpg" alt="Карачаево-Черкессия" class="element__photo">
+                        <div class="element__info">
+                            <h2 class="element__title">Карачаево-Черкессия</h2>
+                            <div class="element__like"></div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer class="footer page__element">
+            <p class="footer__copyright">&#169;2020 Mesto Russia</p>
+        </footer>
+        <section class="popup page__element">
+            <div class="popup__button popup__button_type_close"></div>
+            <form class="popup__container">
+                <h2 class="popup__subtitle">Редактировать профиль</h2>
+                <input type="text" value="" class="popup__input">
+                <input type="text" value="" class="popup__input">
+                <button class="popup__button popup__button_type_submit">Сохранить</button>
+            </form>
+        </section>
+    </div>    
+    <script src="./index.js"></script>
+</body>
+</html>
