@@ -12,4 +12,4 @@
 
 Еще потребовалось изучить **Фигму**, а также научиться правильно ее использовать.
 
-Ссылка на сайт: https://apostle85.github.io/russian-travel/
+Ссылка на сайт: https://apostle85.github.io/mesto/
