@@ -5,4 +5,5 @@
     transition: opacity ease-in 0.2s;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: transparent;
 }
