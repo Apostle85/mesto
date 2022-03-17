@@ -9,14 +9,14 @@
     opacity: 0.6;
 }
 
-@media screen and (min-width: 701px) {
+@media screen and (min-width: 703px) {
     .profile__button_type_add{
         width: 150px;
         margin-left: 16px;
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 702px) {
     .profile__button_type_add{
         width: 100%;
     }
