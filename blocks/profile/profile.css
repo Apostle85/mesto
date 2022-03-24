@@ -1,17 +1,13 @@
 .profile {
-    display: flex;
-    padding-bottom: 51px;
-    flex-wrap: wrap;
+  display: flex;
+  padding-bottom: 35px;
+  flex-wrap: wrap;
 }
 
-/* @media screen and (min-width: 1025px) {
-    .profile {
-        flex-direction: row;
-    }
-} */
-
 @media screen and (max-width: 702px) {
-    .profile {
-        flex-direction: column;
-    }
+  .profile {
+    flex-direction: column;
+    padding-bottom: 36px;
+    align-items: center;
+  }
 }

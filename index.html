@@ -16,8 +16,7 @@
         </header>
         <main class="main page__element">
             <section class="profile main__section">
-                <img src="./images/profile__avatar.jpg" alt="Жак-Ив Кусто"
-                    class="profile__avatar" />
+                <img src="./images/profile__avatar.jpg" alt="Изображение профиля" class="profile__avatar" />
                 <div class="profile__info">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
                     <button type="button" class="profile__button profile__button_type_edit"></button>
@@ -73,18 +72,21 @@
             </section>
         </main>
         <footer class="footer page__element">
-            <p class="footer__copyright">&#169;2020 Mesto Russia</p>
+            <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
-        <section class="popup page__element">
+        <div class="popup">
             <button type="button" class="popup__button popup__button_type_close"></button>
-            <form class="popup__container">
-                <h2 class="popup__subtitle">Редактировать профиль</h2>
-                <input type="text" value="" class="popup__input">
-                <input type="text" value="" class="popup__input">
-                <button type="submit" class="popup__button popup__button_type_submit">Сохранить</button>
-            </form>
-        </section>
-    </div>    
-    <script src="./index.js"></script>
+            <div class="popup__container">
+                <form class="popup__form" name="profile-edit-form">
+                    <h2 class="popup__subtitle">Редактировать профиль</h2>
+                    <input type="text" name="title" value="" class="popup__input popup__input_type_title">
+                    <input type="text" name="subtitle" value="" class="popup__input popup__input_type_subtitle">
+                    <button type="submit" class="popup__button popup__button_type_submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/index.js"></script>
 </body>
+
 </html>

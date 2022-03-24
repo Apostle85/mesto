@@ -1,9 +1,10 @@
-.profile__button{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    transition: opacity ease-in 0.2s;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
+.profile__button {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: opacity ease-in 0.2s;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
 }

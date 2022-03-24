@@ -1,23 +1,23 @@
 .profile__info {
-    display: grid;
-    grid-template-columns: max-content 100%;
-    grid-template-rows: auto;
-    grid-template-areas: 
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: auto;
+  grid-template-areas:
     "profile__title profile__button_type_edit"
     "profile__subtitle profile__subtitle";
-    gap: 16px;
-    flex-grow: 1;
+  gap: 8px 19px;
+  flex-grow: 1;
 }
 
-@media screen and (max-width: 1280px) {
-    .profile__info {
-        margin: 22px 0 36px;
-        align-self: center;
-    }
+@media screen and (min-width: 703px) {
+  .profile__info {
+    margin: 22px 0 36px 30px;
+  }
 }
 
 @media screen and (max-width: 702px) {
-    .profile__info {
-        margin-left: 31px;
-    }
+  .profile__info {
+    gap: 7px 10px;
+    margin: 27px 0 32px 27px;
+  }
 }

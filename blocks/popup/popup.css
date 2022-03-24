@@ -1,13 +1,17 @@
-.popup{
-    display: none;
-    width: 100%;
-    min-height: 100%;
-    position: fixed;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 10;
-    flex-direction: column;
+.popup {
+  display: none;
+  width: 100%;
+  position: fixed;
+  align-items: center;
+  padding-top: 164px;
+  min-height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 702px) {
+  .popup{
+    padding-top: 91px;
+  }
 }

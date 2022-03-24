@@ -1,23 +1,25 @@
-.profile__button_type_add{
-    min-height: 50px;
-    border: 2px solid #fff;
-    background-image: url('../../../../images/plus.svg');
-    place-self: center;   
+.profile__button_type_add {
+  min-height: 50px;
+  border: 2px solid #fff;
+  background-image: url("../../../../images/plus.svg");
+  align-self: center;
 }
 
-.profile__button_type_add:hover{
-    opacity: 0.6;
+.profile__button_type_add:hover {
+  opacity: 0.6;
 }
 
 @media screen and (min-width: 705px) {
-    .profile__button_type_add{
-        width: 150px;
-        margin-left: 16px;
-    }
+  .profile__button_type_add {
+    width: 150px;
+    margin-left: 16px;
+    margin-bottom: 16px;
+  }
 }
 
 @media screen and (max-width: 704px) {
-    .profile__button_type_add{
-        width: 100%;
-    }
+  .profile__button_type_add {
+    width: 100%;
+    background-size: 16px;
+  }
 }
