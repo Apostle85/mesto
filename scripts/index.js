@@ -1,5 +1,5 @@
 // Попап контейнер-форма и ее обработчик отправки
-let formElement = document.querySelector('.popup__container');
+let formElement = document.querySelector('.popup__form');
 // Блок попапа с затемнением
 let popup = document.querySelector('.popup');
 // Переменные DOM-элементов для ввода данных попапа
