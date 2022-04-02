@@ -1,5 +1,5 @@
 .popup {
-  display: none;
+  display: flex;
   width: 100%;
   position: fixed;
   align-items: center;
@@ -8,4 +8,19 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 10;
   flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  animation: fade_out_show 0.5s;
+}
+
+@keyframes fade_out_show {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
