@@ -81,7 +81,7 @@ const cardAddButton = document.querySelector('.profile__button_type_add');
 const popupCardAddCloseButton = popupCardAdd.querySelector('.popup__button_type_close');
 
 // Список карточек
-const cards = document.querySelector('.elements__list');
+const cards = document.querySelector('.elements__container');
 // Шаблон карточки
 const cardTemplate = document.querySelector('#element').content;
 
@@ -119,14 +119,8 @@ function clickCardPhotoHandler(evt){
     openPopup(photoPopup);
 }
     
-// Обработчик закрытия попапа картинки
-function clickPhotoPopupCloseButtonHandler(){
-    closePopup(photoPopup);
-    setTimeout(()=>photoPopup.remove,1000);
-}
-
 // Добавление слушателя закрытия попапа картинки
-photoPopupCloseButton.addEventListener('click', clickPhotoPopupCloseButtonHandler);
+photoPopupCloseButton.addEventListener('click', ()=>closePopup(photoPopup));
 
 
 
