@@ -1,0 +1,13 @@
+.popup__field {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 13px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #c4c4c4;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

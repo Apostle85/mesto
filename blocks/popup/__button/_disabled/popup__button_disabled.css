@@ -1,0 +1,12 @@
+.popup__button_disabled {
+    opacity: 0.2;
+    color: #000;
+    border: #000 1px solid;
+    background: none;
+    cursor: default;
+    padding: 13px 0;
+}
+
+.popup__button_disabled:hover {
+    opacity: 0.2;
+}

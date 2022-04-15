@@ -1,0 +1,15 @@
+.popup__error {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  color: #f00;
+  white-space: nowrap;
+}
+
+.popup__error:empty:before {
+    content: "\200b";
+}
