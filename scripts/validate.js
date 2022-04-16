@@ -21,18 +21,16 @@ const hideInputError = (parameterObject, formElement, inputElement) => {
 
 const hasInvalidInput = (inputList) =>
   inputList.some((input) => {
-      console.log(input.validationMessage);
-      return !input.validity.valid;
-    });
+    return !input.validity.valid;
+  });
 
 const toggleButtonState = (parameterObject, inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(parameterObject.inactiveButtonClass);
-    buttonElement.setAttribute('disabled','');
-    console.log('button is disabled');
+    buttonElement.setAttribute("disabled", "");
   } else {
     buttonElement.classList.remove(parameterObject.inactiveButtonClass);
-    buttonElement.removeAttribute('disabled');
+    buttonElement.removeAttribute("disabled");
   }
 };
 
@@ -49,21 +47,27 @@ const checkInputValidity = (parameterObject, formElement, inputElement) => {
   }
 };
 
-
 const setEventListeners = (parameterObject, formElement) => {
   const inputList = Array.from(
     formElement.querySelectorAll(parameterObject.inputSelector)
   );
-  const buttonElement = formElement.querySelector(
+  const submitButtonElement = formElement.querySelector(
     parameterObject.submitButtonSelector
   );
+  const exitButtonElement = formElement
+    .closest(".popup__container")
+    .querySelector(".popup__button_type_close");
 
-  toggleButtonState(parameterObject, inputList, buttonElement);
+  toggleButtonState(parameterObject, inputList, submitButtonElement);
 
   inputList.forEach((inputElement) => {
+    exitButtonElement.addEventListener("click", () => {
+      hideInputError(parameterObject, formElement, inputElement);
+    });
+
     inputElement.addEventListener("input", () => {
       checkInputValidity(parameterObject, formElement, inputElement);
-      toggleButtonState(parameterObject, inputList, buttonElement);
+      toggleButtonState(parameterObject, inputList, submitButtonElement);
     });
   });
 };
@@ -80,10 +84,10 @@ const enableValidation = (parameterObject) => {
 
 // Включение валидации вызовом enableValidation с объектом параметров
 enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
 });

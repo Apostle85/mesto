@@ -7,7 +7,6 @@
   font-size: 12px;
   line-height: 1.25;
   color: #f00;
-  white-space: nowrap;
 }
 
 .popup__error:empty:before {
