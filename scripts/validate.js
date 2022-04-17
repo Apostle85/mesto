@@ -54,18 +54,28 @@ const setEventListeners = (parameterObject, formElement) => {
   const submitButtonElement = formElement.querySelector(
     parameterObject.submitButtonSelector
   );
-  const exitButtonElement = formElement
-    .closest(".popup__container")
-    .querySelector(".popup__button_type_close");
+  const popup = formElement.closest('.popup');
 
   toggleButtonState(parameterObject, inputList, submitButtonElement);
 
   inputList.forEach((inputElement) => {
-    exitButtonElement.addEventListener("click", () => {
-      hideInputError(parameterObject, formElement, inputElement);
-    });
+    if (inputElement.closest('.popup_type_profile-edit')) {
+      popup.addEventListener('click', (evt) => {
+        if (
+          evt.target.classList.contains('popup__button_type_close') ||
+          evt.target.classList.contains('popup__background')
+        ) {
+          hideInputError(parameterObject, formElement, inputElement);
+        }
+      });
 
-    inputElement.addEventListener("input", () => {
+      document.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+          hideInputError(parameterObject, formElement, inputElement);
+        }
+      });
+    }
+    inputElement.addEventListener('input', () => {
       checkInputValidity(parameterObject, formElement, inputElement);
       toggleButtonState(parameterObject, inputList, submitButtonElement);
     });
@@ -77,17 +87,17 @@ const enableValidation = (parameterObject) => {
     document.querySelectorAll(parameterObject.formSelector)
   );
   formList.forEach((formElement) => {
-    formElement.addEventListener("submit", (evt) => evt.preventDefault());
+    formElement.addEventListener('submit', (evt) => evt.preventDefault());
     setEventListeners(parameterObject, formElement);
   });
 };
 
 // Включение валидации вызовом enableValidation с объектом параметров
 enableValidation({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible',
 });
