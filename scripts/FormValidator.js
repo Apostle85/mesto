@@ -9,10 +9,7 @@ export default class FormValidator{
       this._formElement = formElement;
     }
   
-    _showInputError(
-      inputElement,
-      errorMessage
-    ) {
+    _showInputError(inputElement, errorMessage) {
       const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
       inputElement.classList.add(this._inputErrorClass);
     
@@ -29,7 +26,7 @@ export default class FormValidator{
     };
     
     _hasInvalidInput(inputList){
-      inputList.some((input) => {
+      return inputList.some((input) => {
         return !input.validity.valid;
       });
     }
@@ -94,7 +91,7 @@ export default class FormValidator{
         this._formElement.addEventListener('submit', evt => evt.preventDefault());
         this._setEventListeners();
     }
-    
+
     // enableValidation() {
     //   const formList = Array.from(
     //     document.querySelectorAll(this._formSelector)
