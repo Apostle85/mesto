@@ -9,7 +9,6 @@ import FormValidator from "./FormValidator.js";
 // Данные
 //--------
 
-const page = document.querySelector(".page");
 
 // Попапы
 
@@ -19,8 +18,6 @@ const popupProfile = document.querySelector(".popup_type_profile-edit");
 // Блок попапа добавления карточек с затемнением
 const popupCardAdd = document.querySelector(".popup_type_card-add");
 
-// Попап картинки
-const photoPopup = document.querySelector(".popup_type_photo");
 
 // Переменные Попапа редактирования профиля
 
@@ -87,16 +84,6 @@ const cardAddButton = document.querySelector(".profile__button_type_add");
 
 // Список карточек
 const cards = document.querySelector(".elements__container");
-// Шаблон карточки
-const cardTemplate = document.querySelector("#element").content;
-
-// Данные попапа картинки
-const popupImage = photoPopup.querySelector(".popup__image");
-const popupTitle = photoPopup.querySelector(".popup__photo-description");
-
-const photoPopupCloseButton = photoPopup.querySelector(
-  ".popup__button_type_close"
-);
 
 // ----------------------
 // Функции и Обработчики
@@ -122,10 +109,16 @@ function keyDownEscapeHandler(evt) {
 }
 
 // Функция открытия попапа
-function openPopup(popup) {
+export function openPopup(popup) {
   // Закрытие попапа по нажатию клавиши "Esc"
   document.addEventListener("keydown", keyDownEscapeHandler);
   popup.classList.add("popup_opened");
+}
+
+// Функция создания элемента карточки
+function initCard({ title, image }, templateSelector) {
+  const card = new Card({ title, image }, templateSelector);
+  return card.createCard();
 }
 
 // Обработчик добавления карточки
@@ -134,15 +127,13 @@ function submitFormCardAddHandler(evt) {
 
   const form = evt.target;
 
-  // Создаем карточку
-  const card = new Card(
-    { title: cardNameInput.value, image: cardRefInput.value },
-    "#element",
-    openPopup
+  // Создаем карточку и добавляем в разметку
+  renderCard(
+    initCard(
+      { title: cardNameInput.value, image: cardRefInput.value },
+      "#element"
+    )
   );
-
-  // Добавляем в разметку
-  renderCard(card.createCard());
 
   // Закрываем попап
   closePopup(popupCardAdd);
@@ -154,8 +145,7 @@ function submitFormCardAddHandler(evt) {
 // Добавление карточек "из коробки"
 function addCardsOnLoadHandler() {
   initialCards.forEach((el) => {
-    const card = new Card(el, "#element", openPopup);
-    renderCard(card.createCard());
+    renderCard(initCard(el, "#element"));
   });
 }
 

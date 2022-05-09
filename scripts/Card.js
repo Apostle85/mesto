@@ -1,10 +1,12 @@
+import { openPopup } from './index.js';
+import {photoPopup,popupImage,popupTitle} from './utils.js';
+
 // Класс карточки
 export default class Card {
-    constructor(data, cardSelector, openPopup) {
+    constructor(data, cardSelector) {
       this._title = data.title;
       this._image = data.image;
       this._cardSelector = cardSelector;
-      this._openPopup = openPopup;
     }
 
     // Получаем копию элемента карточки
@@ -26,15 +28,11 @@ export default class Card {
   
     // Обработчик нажатия на фото карточки - открытия попапа картинки
     _clickCardPhotoHandler() {
-        const photoPopup = document.querySelector(".popup_type_photo");
-        const popupImage = photoPopup.querySelector(".popup__image");
-        const popupTitle = photoPopup.querySelector(".popup__photo-description");
-        
-        popupImage.src = this._cardElement.querySelector(".element__photo").src;
-        popupImage.alt = this._cardElement.querySelector(".element__title").textContent;
-        popupTitle.textContent = this._cardElement.querySelector(".element__title").textContent;
+        popupImage.src = this._image;
+        popupImage.alt = this._title;
+        popupTitle.textContent = this._title;
 
-        this._openPopup(photoPopup);
+        openPopup(photoPopup);
     }
   
     // Обработчик нажатия на кнопку удаления
@@ -57,7 +55,6 @@ export default class Card {
     // Функция создания карточки
     createCard() {
       // клонируем содержимое тега template
-      // const card = cardTemplate.querySelector('.element').cloneNode(true);
       this._cardElement = this._getTemplate();
   
       // наполняем содержимым
