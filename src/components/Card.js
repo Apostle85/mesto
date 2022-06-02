@@ -1,11 +1,9 @@
-import { openPopup } from './index.js';
-import {photoPopup,popupImage,popupTitle} from './utils.js';
-
 // Класс карточки
 export default class Card {
-    constructor(data, cardSelector) {
-      this._title = data.title;
-      this._image = data.image;
+    constructor({title, image, handleCardClick}, cardSelector) {
+      this._title = title;
+      this._image = image;
+      this._handleCardClick = handleCardClick;
       this._cardSelector = cardSelector;
     }
 
@@ -26,15 +24,6 @@ export default class Card {
         this._cardElement.querySelector(".element__title").textContent = this._title;
     }
   
-    // Обработчик нажатия на фото карточки - открытия попапа картинки
-    _clickCardPhotoHandler() {
-        popupImage.src = this._image;
-        popupImage.alt = this._title;
-        popupTitle.textContent = this._title;
-
-        openPopup(photoPopup);
-    }
-  
     // Обработчик нажатия на кнопку удаления
     _clickCardDeleteHandler() {
       this._cardElement.remove();
@@ -49,7 +38,7 @@ export default class Card {
     _addEventListeners() {
         this._cardElement.querySelector(".element__like").addEventListener("click", () => this._clickCardLikeHandler());
         this._cardElement.querySelector(".element__delete").addEventListener("click", () => this._clickCardDeleteHandler());
-        this._cardElement.querySelector(".element__photo").addEventListener("click", () => this._clickCardPhotoHandler());
+        this._cardElement.querySelector(".element__photo").addEventListener("click", () => this._handleCardClick());
     }
   
     // Функция создания карточки
