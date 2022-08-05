@@ -5,12 +5,11 @@ export default class PopupWithForm extends Popup {
         super(popupSelector);
         this._renderer = renderer;
         this._form = this._popup.querySelector('.popup__form');
-    }
-
-    _getInputValues(){
-
         // достаём все элементы полей
         this._inputList = this._form.querySelectorAll('.popup__input');
+    }
+    
+    _getInputValues(){
 
         // создаём пустой объект
         this._formValues = {};
@@ -36,12 +35,14 @@ export default class PopupWithForm extends Popup {
     // Обработчик Сабмита Формы
     _submitFormCardAddHandler(evt) {
         evt.preventDefault();
-    
-        // 
+        // Внешний обработчик
         this._renderer(this._getInputValues());
-
         // Закрываем попап
         this.close();
+    }
+
+    getForm(){
+        return this._form;
     }
 
     setEventListeners() {

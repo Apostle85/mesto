@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Apostle85/mesto#readme",
   "dependencies": {
-    "core-js": "^8.9.0"
+    "core-js": "^3.22.8"
   },
   "devDependencies": {
     "@babel/core": "^7.18.0",

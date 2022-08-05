@@ -46,10 +46,22 @@ export const cardSelector = "#element";
 export const popupWithImageSelector = ".popup_type_photo";
 // Список карточек
 export const cardListSelector = ".elements__container";
-// Блок попапа редактирования профиля с затемнением
+// Блок попапа редактирования профиля
 export const popupProfileSelector = ".popup_type_profile-edit";
+export const profileEditButton = document.querySelector(".profile__button_type_edit");
 // Текстовые элементы блока profile
 export const userNameSelector = ".profile__title";
 export const userDescriptionSelector = ".profile__subtitle";
-// Блок попапа добавления карточек с затемнением
+// Блок попапа добавления карточек
 export const popupCardAddSelector = ".popup_type_card-add";
+// Кнопка открытия попапа добавления карточек
+export const cardAddButton = document.querySelector(".profile__button_type_add");
+// Объект Валидации
+export const formValidatorObject = {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+};
