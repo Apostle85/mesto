@@ -1,6 +1,6 @@
 .element__photo {
   min-width: 284px;
-  max-height: 282px;
+  height: 282px;
   object-fit: cover;
   align-self: center;
   cursor: pointer;
