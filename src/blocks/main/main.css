@@ -1,3 +1,7 @@
+.main{
+  min-height: 60vh;
+}
+
 @media screen and (min-width: 703px) {
   .main {
     padding: 42px 19px 67px;

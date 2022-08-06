@@ -21,7 +21,6 @@ export default class FormValidator {
       `.${inputElement.id}-error`
     );
     inputElement.classList.add(this._inputErrorClass);
-
     errorElement.textContent = errorMessage;
     errorElement.classList.add(this._errorClass);
   }
