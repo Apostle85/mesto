@@ -38,6 +38,7 @@ const userInfo = new UserInfo({
   userNameSelector: userNameSelector,
   userDescriptionSelector: userDescriptionSelector,
 });
+const userInfoObject = userInfo.getUserInfo();
 
 // Создаем попап с картинкой
 const popupWithImage = new PopupWithImage(popupWithImageSelector);
@@ -119,9 +120,9 @@ cardAddValidation.enableValidation();
 
 // Обработчик нажатия открытия попапа изменения профиля и его слушатель
 const handleProfileEditClick = () => {
-  formProfile.elements.title.value = userInfo.getUserInfo().userName;
+  formProfile.elements.title.value = userInfoObject.userName;
   formProfile.elements.subtitle.value =
-    userInfo.getUserInfo().userDescription;
+  userInfoObject.userDescription;
   profileValidation.resetValidation();
   popupProfile.open();
 };
