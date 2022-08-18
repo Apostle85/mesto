@@ -1,10 +1,38 @@
 // Класс карточки
 export default class Card {
-    constructor({title, image, handleCardClick}, cardSelector) {
+    constructor({title, image, handleCardClick, id = '', owner = {}, isOwner=false, likes=[], isLiked = false, handleDeleteClick = null, handleLikeClick = null}, cardSelector) {
       this._title = title;
       this._image = image;
       this._handleCardClick = handleCardClick;
+      this._handleDeleteClick = handleDeleteClick;
+      this._handleLikeClick = handleLikeClick;
       this._cardSelector = cardSelector;
+      this._id = id;
+      this._isOwner = isOwner;
+      this._owner = owner;
+      this._likesNumber = likes.length;
+      this._likes = likes;
+      this._isLiked = isLiked;
+    }
+
+
+    like(likes){
+      this._likes = likes;
+      this._likesNumber = likes.length;
+      this._likeCounterElement.textContent = this._likesNumber;
+      this._likeButton.classList.toggle("element__like_active");
+    }
+
+    getId(){
+      return this._id;
+    }
+
+    getOwnerId(){
+      return this._owner._id;
+    }
+
+    getLikes(){
+      return this._likes;
     }
 
     // Получаем копию элемента карточки
@@ -21,6 +49,7 @@ export default class Card {
       this._deleteButton = this._cardElement.querySelector(".element__delete");
       this._photoElement = this._cardElement.querySelector(".element__photo");
       this._titleElement = this._cardElement.querySelector(".element__title");
+      this._likeCounterElement = this._cardElement.querySelector(".element__like-counter");
     }
 
     // Наполняем карточку содержимым
@@ -28,24 +57,27 @@ export default class Card {
       this._photoElement.src = this._image;
       this._photoElement.alt = this._title;
       this._titleElement.textContent = this._title;
+      this._likeCounterElement.textContent = this._likesNumber;
+      if(!this._isOwner) {
+        this._deleteButton.remove();
+      }
+      if(this._isLiked){
+        this._likeButton.classList.toggle("element__like_active");
+      }
     }
-  
-    // Обработчик нажатия на кнопку удаления
-    _handleDeleteButtonClick() {
+
+    deleteCard(){
       this._cardElement.remove();
       this._cardElement = null;
     }
   
-    // Обработчик нажатия на кнопку лайка
-    _handleLikeButtonClick() {
-      this._likeButton.classList.toggle("element__like_active");
-    }
-  
     // Добавление всех слушателей Карточки
     _addEventListeners() {
-        this._likeButton.addEventListener("click", () => this._handleLikeButtonClick());
-        this._deleteButton.addEventListener("click", () => this._handleDeleteButtonClick());
+        this._likeButton.addEventListener("click", () => this._handleLikeClick());
         this._photoElement.addEventListener("click", () => this._handleCardClick());
+        if(this._isOwner) {
+          this._deleteButton.addEventListener("click", () => this._handleDeleteClick());
+        }
     }
     
     // Функция создания карточки

@@ -1,6 +1,9 @@
 .profile__avatar {
   display: flex;
   width: 120px;
-  height: 100%;
+  height: 120px;
   border-radius: 50%;
+  transition: opacity ease-in 0.2s;
+  z-index: 0;
+  object-fit: cover;
 }

@@ -1,0 +1,27 @@
+.profile__button_type-edit-avatar {
+    position: relative;
+    max-height: 120px;
+    transition: opacity ease-in 0.2s;
+    background-color: #000;
+}
+
+.profile__button_type-edit-avatar::after{
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background-color: #000;
+    background-image: url("../../../../images/Vector1.svg");
+    transition: opacity 0.2s ease-in;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 26px;
+    z-index: 9;
+    opacity: 0;
+}
+
+.profile__button_type-edit-avatar:hover::after{
+    opacity: 0.8;
+}

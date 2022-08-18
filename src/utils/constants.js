@@ -1,46 +1,22 @@
+// Токен
+export const token = "a03d4118-2056-418e-8efc-0823108695ca";
+export const identificator = "cohort-48";
+export const baseUrl = "https://mesto.nomoreparties.co/v1";
 // Попап картинки
 export const photoPopup = document.querySelector(".popup_type_photo");
-
+// Попап удаления карточки
+export const popupDeleteSelector = ".popup_type_card-delete";
+// Попап изменения аватара
+export const popupAvatarEditSelector = ".popup_type_avatar-edit";
+// Кнопка открытия попапа изменения аватара
+export const avatarEditButton = document.querySelector(".profile__button_type-edit-avatar");
+// Картинка аватара
+export const avatarImageSelector = ".profile__avatar";
 // Данные попапа картинки
 export const popupImage = photoPopup.querySelector(".popup__image");
 export const popupTitle = photoPopup.querySelector(".popup__photo-description");
 
 // const image1 = new URL("https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg", import.meta.url);
-
-
-
-// Карточки "из коробки"
-export const initialCards = [
-  {
-    title: "Архыз",
-    image:"https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    title: "Челябинская область",
-    image:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    title: "Иваново",
-    image:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    title: "Камчатка",
-    image:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    title: "Холмогорский район",
-    image:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    title: "Байкал",
-    image:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
 
 export const cardSelector = "#element";
 export const popupWithImageSelector = ".popup_type_photo";
