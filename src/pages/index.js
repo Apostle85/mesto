@@ -46,7 +46,6 @@ const initCardElement = (
   { name = "", link = "", _id = "", likes = [], owner={} },
   isOwner = false
 ) => {
-  console.log("likes: ",likes);
   // Создаем карточку
   const card = new Card(
     {
