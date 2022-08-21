@@ -12,8 +12,6 @@ export default class PopupWithConfirmation extends Popup {
     evt.preventDefault();
     // Внешний обработчик
     this._renderer(this._card);
-    // Закрываем попап
-    this.close();
   }
 
   open(card) {

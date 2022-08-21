@@ -198,6 +198,7 @@ const popupCardDelete = new PopupWithConfirmation(
         .deleteCard(card.getId())
         .then(() => {
           card.deleteCard();
+          popupCardDelete.close();
         })
         .catch((err) => {
           console.log(err);
@@ -215,33 +216,30 @@ popupCardDelete.setEventListeners();
 
 //#region Запросы к API
 
-// Получение информации о пользователе
-api
-  .getUserInfo()
-  .then((data) => {
-    userInfo.setUserInfo({
-      userName: data.name,
-      userDescription: data.about,
-      id: data._id,
-      avatar: data.avatar,
-    });
-  })
-  .catch((err) => {
-    // Если произошла ошибка иного рода, ловим ее через catch
-    console.log(err);
+Promise.all([api.getUserInfo(),api.getInitialCards()])
+.then(values => {
+  const data = values[0];
+  const initialCards = values[1];
+
+  // Получение информации о пользователе
+  userInfo.setUserInfo({
+    userName: data.name,
+    userDescription: data.about,
+    id: data._id,
+    avatar: data.avatar,
   });
 
-// Получение начального набора карточек с сервера
-api
-  .getInitialCards()
-  .then((initialCards) => {
-    cardList.renderItems(initialCards, userInfo.getUserInfo().id);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+  // Получение начального набора карточек с сервера
+  cardList.renderItems(initialCards, userInfo.getUserInfo().id);
+})
+.catch((err) => {
+  // Если произошла ошибка иного рода, ловим ее через catch
+  console.log(err);
+});
 
 //#endregion
+
+
 
 //-----------
 // Валидация
@@ -290,7 +288,6 @@ cardAddButton.addEventListener("click", handleCardAddClick);
 // Обработчик нажатия кнопки открытия попапа изменения аватара и его слушатель
 const handleAvatarEditClick = () => {
   avatarEditValidation.resetValidation();
-  formAvatarEdit.elements.image.value = userInfo.getUserInfo().avatar;
   popupAvatarEdit.open();
 };
 avatarEditButton.addEventListener("click", handleAvatarEditClick);
